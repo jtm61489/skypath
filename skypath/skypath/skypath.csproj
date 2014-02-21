@@ -66,6 +66,7 @@
     <Content Include="Scripts\libs\modernizr-2.5.2.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\script.min.js" />
+    <Content Include="Student.aspx" />
     <Content Include="Styles\normalize.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -75,6 +76,7 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\styles.css" />
     <Content Include="Styles\styles.min.css" />
+    <Content Include="Teacher.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -144,6 +146,20 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Student.aspx.cs">
+      <DependentUpon>Student.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student.aspx.designer.cs">
+      <DependentUpon>Student.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher.aspx.cs">
+      <DependentUpon>Teacher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Teacher.aspx.designer.cs">
+      <DependentUpon>Teacher.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -159,9 +175,14 @@
     <None Include="Fonts\raphaelicons-webfont.ttf" />
     <None Include="Fonts\raphaelicons-webfont.woff" />
     <Content Include="Site.Master" />
+    <Content Include="Fonts\Web.config" />
+    <Content Include="Images\Web.config" />
+    <Content Include="MasterPages\Web.config" />
+    <Content Include="Scripts\Web.config" />
     <None Include="Styles\ie-fixes.less" />
     <None Include="Styles\responsive.less" />
     <None Include="Styles\styles.less" />
+    <Content Include="Styles\Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
