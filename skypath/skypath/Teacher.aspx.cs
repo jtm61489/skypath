@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using skypath.Utilities;
+using System.Data.SqlClient;
+using skypath.DataAccess;
 
 namespace skypath
 {
@@ -14,7 +17,7 @@ namespace skypath
             this.ButtonAddNewAppointment.Click += new EventHandler(ButtonAddNewAppointment_Click);
 
             // make times for drop down list
-            for (int i = 0; i <= 24; i++)
+            for (int i = 0; i <= 23; i++)
             {
                 for (int j = 0; j < 2; j++)
                 {
@@ -36,13 +39,22 @@ namespace skypath
 
         void ButtonAddNewAppointment_Click(object sender, EventArgs e)
         {
+            DaTeacher daTeacher = new DaTeacher();
             DateTime newAppointment = new DateTime();
 
-            newAppointment = DateTime.Parse(this.TextBoxDate.Text);            
+            newAppointment = DateTime.Parse(this.TextBoxDate.Text);
 
-            newAppointment.Add(TimeSpan.Parse(this.DropDownListTime.SelectedValue));
+            TimeSpan time = TimeSpan.Parse(this.DropDownListTime.SelectedValue);
+
+            newAppointment.Add(time);
+
+            string userName = User.Identity.Name;
+
+            int idTeacher = daTeacher.GetTeacherIdByUserName(userName);            
 
             //db call to insert appointment
+            daTeacher.InsertNewAppointment(newAppointment, idTeacher);
+
         }
     }
 }

@@ -8,6 +8,8 @@ using System.Web.Security;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using skypath.Utilities;
+using skypath.DataAccess;
 
 namespace skypath.Account
 {
@@ -25,39 +27,8 @@ namespace skypath.Account
             string userName = this.LoginUser.UserName;
             string password = this.LoginUser.Password;
 
-            //check database
-            string connString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
-
-            SqlCommand sqlCommand = new SqlCommand();
-
-            sqlCommand.Parameters.Add(new SqlParameter("@userName", userName));
-            sqlCommand.Parameters.Add(new SqlParameter("@password", password));
-
-            string sqlText = @"SELECT [id]
-                              ,[userName]
-                              ,[firstName]
-                              ,[lastName]
-                              ,[password]
-                          FROM [sukotto1_skypath2008].[sukotto1_jason2008].[User] 
-                        where [sukotto1_skypath2008].[sukotto1_jason2008].[User].userName = @userName 
-                        and [sukotto1_skypath2008].[sukotto1_jason2008].[User].password = @password";
-
-            sqlCommand.CommandText = sqlText;
-
-            DataTable dtResults = new DataTable();
-
-            
-            // Open connection
-            using (SqlConnection c = new SqlConnection(connString))
-            {
-                sqlCommand.Connection = c;
-                c.Open();
-                
-                using (SqlDataReader dr = sqlCommand.ExecuteReader())
-                {                    
-                    dtResults.Load(dr);                
-                }
-            }            
+            DaLogin daLogin = new DaLogin();
+            DataTable dtResults = daLogin.Login(userName, password);
 
             if (dtResults.Rows.Count == 1)
             {

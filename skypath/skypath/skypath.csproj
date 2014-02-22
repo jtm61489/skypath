@@ -146,6 +146,9 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\DaLogin.cs" />
+    <Compile Include="DataAccess\DaStudent.cs" />
+    <Compile Include="DataAccess\DaTeacher.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +188,7 @@
     <Compile Include="Teacher.aspx.designer.cs">
       <DependentUpon>Teacher.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\SQLHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
