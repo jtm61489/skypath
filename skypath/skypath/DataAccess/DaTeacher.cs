@@ -51,12 +51,15 @@ namespace skypath.DataAccess
             string sqlText = @"                                                                  
 
                             select @idTeacher = [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id
+                            
                             from [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher] 
+                            
                             inner join  [sukotto1_skypath2008].[sukotto1_jason2008].[User] on
-                            [sukotto1_skypath2008].[sukotto1_jason2008].[User].id = 
-                            [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id_User 
-                            where [sukotto1_skypath2008].[sukotto1_jason2008].[User].userName = @userName
-                                
+                                [sukotto1_skypath2008].[sukotto1_jason2008].[User].id = 
+                                [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id_User 
+
+                            where [sukotto1_skypath2008].[sukotto1_jason2008].[User].userName = @userName                            
+    
                                 ";
 
             sqlCommand.CommandText = sqlText;
@@ -68,6 +71,63 @@ namespace skypath.DataAccess
             result = int.Parse(resultParameter.Value.ToString());
 
             return result;
+        }
+
+        public DataTable GetTeacherAppointments(int idTeacher)
+        {
+            DataTable results = new DataTable();
+
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Parameters.Add(new SqlParameter("@idTeacher", idTeacher));
+
+            string sqlText = @"                                                                  
+
+                            select [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].id,
+                                   [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointment,
+                                   [sukotto1_skypath2008].[sukotto1_jason2008].[User].userName
+                            from [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher] 
+                            inner join  [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment] on
+                                        [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].id_Teacher = 
+                                        [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id 
+                            inner join  [sukotto1_skypath2008].[sukotto1_jason2008].[User] on
+                                        [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id_User = 
+                                        [sukotto1_skypath2008].[sukotto1_jason2008].[User].id
+                            where [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id = @idTeacher
+                                
+                                ";
+
+            sqlCommand.CommandText = sqlText;
+
+            SQLHelper sqlHelper = new SQLHelper();
+
+            results = sqlHelper.SQL_Select(sqlCommand);
+
+            return results;
+        }
+
+        public DataTable DeleteAppointment(int idAppointment)
+        {
+            DataTable results = new DataTable();
+
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Parameters.Add(new SqlParameter("@idAppointment", idAppointment));
+
+            string sqlText = @"
+              
+                            Delete from [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment]
+                            where [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].id = @idAppointment
+                                
+                                ";
+
+            sqlCommand.CommandText = sqlText;
+
+            SQLHelper sqlHelper = new SQLHelper();
+
+            results = sqlHelper.SQL_Select(sqlCommand);
+
+            return results;
         }
     }
 }

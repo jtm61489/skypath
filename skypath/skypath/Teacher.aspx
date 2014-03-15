@@ -12,6 +12,19 @@
     <h4>
         Appointments
     </h4>
+    <asp:GridView ID="GridViewAppointments" runat="server" OnSelectedIndexChanged="GridViewAppointments_SelectedIndexChanged" AutoGenerateSelectButton="true" AutoGenerateColumns="false" DataKeyNames="id">
+        <SelectedRowStyle BackColor="Red" />
+            <Columns>
+      <%--  <asp:BoundField DataField="id" HeaderText="id" 
+            InsertVisible="False" ReadOnly="True" SortExpression="CustomerID" />--%>
+        <asp:BoundField DataField="appointment" HeaderText="appointment" 
+            SortExpression="appointment" />
+        <asp:BoundField DataField="userName" HeaderText="userName" 
+            SortExpression="userName" />
+    </Columns>
+    </asp:GridView>
+    <br />
+    <asp:Button ID="ButtonDelete" runat="server" Text="Delete Appointment" />
     <h4>
         Add New Appointment Opening
     </h4>
