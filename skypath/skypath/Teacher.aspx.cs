@@ -16,9 +16,7 @@ namespace skypath
         protected void Page_Load(object sender, EventArgs e)
         {
             this.ButtonAddNewAppointment.Click += new EventHandler(ButtonAddNewAppointment_Click);
-            this.ButtonDelete.Click += new EventHandler(ButtonDelete_Click);
-            GridViewAppointments.DataBound += new EventHandler(GridViewAppointments_DataBound);
-            
+            this.ButtonDelete.Click += new EventHandler(ButtonDelete_Click);            
 
             // make times for drop down list
             for (int i = 0; i <= 23; i++)
@@ -40,45 +38,35 @@ namespace skypath
                 }
             }
 
-            Bind_Appointments();
+            Bind_Appointments(false);
 
-        }
-
-        void GridViewAppointments_DataBound(object sender, EventArgs e)
-        {
-            //GridViewAppointments.Columns[GridViewHelper.GetColumnID("id", GridViewAppointments)].Visible = false;
         }
 
         void ButtonDelete_Click(object sender, EventArgs e)
         {
-           // GridViewAppointments.Columns[GridViewHelper.GetColumnID("id", GridViewAppointments)].Visible = true;
-
-            //int columnID = GridViewHelper.GetColumnID("id", GridViewAppointments);
-
             GridViewRow selectedRow = GridViewAppointments.Rows[GridViewAppointments.SelectedIndex];
 
             int appointmentId = (int)GridViewAppointments.DataKeys[selectedRow.RowIndex]["id"];
-                //GridViewHelper.GetGridViewInt(selectedRow, columnID);
 
             DaTeacher daTeacher = new DaTeacher();
-   //         daTeacher.DeleteAppointment(appointmentId);
+            daTeacher.DeleteAppointment(appointmentId);
 
-            Bind_Appointments();
+            Bind_Appointments(true);
         }
 
-        void Bind_Appointments()
+        void Bind_Appointments(bool refreshGrid)
         {
             DaTeacher daTeacher = new DaTeacher();
 
             string userName = User.Identity.Name;
 
-            int idTeacher = daTeacher.GetTeacherIdByUserName(userName);
+            int? idTeacher = daTeacher.GetTeacherIdByUserName(userName);
 
-            DataTable dtAppointments = daTeacher.GetTeacherAppointments(idTeacher);
+            DataTable dtAppointments = daTeacher.GetTeacherAppointments((int)idTeacher);
 
             GridViewAppointments.DataSource = dtAppointments;
 
-            if (!IsPostBack)
+            if (!IsPostBack || refreshGrid)
             {
                 GridViewAppointments.DataBind();
             }            
@@ -97,12 +85,12 @@ namespace skypath
 
             string userName = User.Identity.Name;
 
-            int idTeacher = daTeacher.GetTeacherIdByUserName(userName);
+            int? idTeacher = daTeacher.GetTeacherIdByUserName(userName);
 
             //db call to insert appointment
-            daTeacher.InsertNewAppointment(newAppointment, idTeacher);
+            daTeacher.InsertNewAppointment(newAppointment, (int)idTeacher);
 
-            Bind_Appointments();
+            Bind_Appointments(true);            
 
         }
 

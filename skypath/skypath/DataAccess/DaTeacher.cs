@@ -37,9 +37,9 @@ namespace skypath.DataAccess
             return dtResults;
         }
 
-        public int GetTeacherIdByUserName(string userName)
+        public int? GetTeacherIdByUserName(string userName)
         {
-            int result = 0;
+            int? result = -1;
 
             SqlCommand sqlCommand = new SqlCommand();
 
@@ -68,7 +68,10 @@ namespace skypath.DataAccess
 
             sqlHelper.SQL_Select(sqlCommand);
 
-            result = int.Parse(resultParameter.Value.ToString());
+            if (!String.IsNullOrEmpty(resultParameter.Value.ToString()))
+            {
+                result = int.Parse(resultParameter.Value.ToString());
+            }      
 
             return result;
         }
@@ -94,6 +97,7 @@ namespace skypath.DataAccess
                                         [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id_User = 
                                         [sukotto1_skypath2008].[sukotto1_jason2008].[User].id
                             where [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id = @idTeacher
+                            order by [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointment
                                 
                                 ";
 

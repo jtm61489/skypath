@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using skypath.DataAccess;
 
 namespace skypath.MasterPages
 {
@@ -12,6 +13,13 @@ namespace skypath.MasterPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DaStudent daStudent = new DaStudent();
+            string userName = HttpContext.Current.User.Identity.Name;
+            int? idStudent = daStudent.GetStudentIdByUserName(userName);
+
+            DaTeacher daTeacher = new DaTeacher();            
+            int? idTeacher = daTeacher.GetTeacherIdByUserName(userName);
+
             HtmlGenericControl ulMainMenu = new HtmlGenericControl("ul");
             ulMainMenu.Attributes.Add("role","navigation");
 
@@ -22,19 +30,25 @@ namespace skypath.MasterPages
             liMainMenu1.Controls.Add(aMainMenu1);
             ulMainMenu.Controls.Add(liMainMenu1);
 
-            HtmlGenericControl liMainMenu2 = new HtmlGenericControl("li");
-            HtmlGenericControl aMainMenu2 = new HtmlGenericControl("a");
-            aMainMenu2.Attributes.Add("href", "Teacher.aspx");
-            aMainMenu2.InnerText = "Teacher";
-            liMainMenu2.Controls.Add(aMainMenu2);
-            ulMainMenu.Controls.Add(liMainMenu2);
+            if (idTeacher != -1)
+            {
+                HtmlGenericControl liMainMenu2 = new HtmlGenericControl("li");
+                HtmlGenericControl aMainMenu2 = new HtmlGenericControl("a");
+                aMainMenu2.Attributes.Add("href", "Teacher.aspx");
+                aMainMenu2.InnerText = "Teacher";
+                liMainMenu2.Controls.Add(aMainMenu2);
+                ulMainMenu.Controls.Add(liMainMenu2);
+            }
 
-            HtmlGenericControl liMainMenu3 = new HtmlGenericControl("li");
-            HtmlGenericControl aMainMenu3 = new HtmlGenericControl("a");
-            aMainMenu3.Attributes.Add("href", "Student.aspx");
-            aMainMenu3.InnerText = "Student";
-            liMainMenu3.Controls.Add(aMainMenu3);
-            ulMainMenu.Controls.Add(liMainMenu3);
+            if (idStudent != -1)
+            {
+                HtmlGenericControl liMainMenu3 = new HtmlGenericControl("li");
+                HtmlGenericControl aMainMenu3 = new HtmlGenericControl("a");
+                aMainMenu3.Attributes.Add("href", "Student.aspx");
+                aMainMenu3.InnerText = "Student";
+                liMainMenu3.Controls.Add(aMainMenu3);
+                ulMainMenu.Controls.Add(liMainMenu3);
+            }
 
             this.ContentPlaceHolderMainMenu.Controls.Add(ulMainMenu);
         }
