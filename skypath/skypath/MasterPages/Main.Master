@@ -23,7 +23,7 @@
     </ajaxToolkit:ToolkitScriptManager>
     <header class="clearfix">
         <div class="container">
-            <a id="logo" href="Default.aspx">Skypath</a>
+            <a id="logo" href="~/Default.aspx">Skypath</a>
             <ul class="social-icons">
                 <li>
                     <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
@@ -60,7 +60,7 @@
     <footer role="contentinfo">
         <p>
             <span class="left">Skypath
-                <a href="Default.aspx">HOME</a> 
+                <a href="~/Default.aspx">HOME</a> 
                 <%--| <a href="portfolio.html">
                     PORTFOLIO</a> | <a href="page.html">PAGE</a> | <a href="blog.html">BLOG</a>
             | <a href="contact.html">CONTACT US</a>--%>
