@@ -14,18 +14,19 @@ namespace skypath.DataAccess
         {
         }
 
-        public DataTable InsertNewAppointment(DateTime newAppointment, int idTeacher)
+        public DataTable InsertNewAppointment(DateTime newAppointmentStart, DateTime newAppointmentEnd, int idTeacher)
         {
             DataTable dtResults = new DataTable();
 
             SqlCommand sqlCommand = new SqlCommand();
 
-            sqlCommand.Parameters.Add(new SqlParameter("@appointment", newAppointment));
+            sqlCommand.Parameters.Add(new SqlParameter("@appointmentStart", newAppointmentStart));
+            sqlCommand.Parameters.Add(new SqlParameter("@appointmentEnd", newAppointmentEnd));
             sqlCommand.Parameters.Add(new SqlParameter("@idTeacher", idTeacher));
 
             string sqlText = @"Insert into [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment] 
-                                (appointment, id_Teacher)
-                                values(@appointment, @idTeacher)                               
+                                (appointmentStart, appointmentEnd, id_Teacher)
+                                values(@appointmentStart, @appointmentEnd, @idTeacher)                               
                                 ";
 
             sqlCommand.CommandText = sqlText;

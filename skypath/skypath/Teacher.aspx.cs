@@ -111,21 +111,24 @@ namespace skypath
 
         void ButtonAddNewAppointment_Click(object sender, EventArgs e)
         {
+            int lessonTime = 30;
             DaTeacher daTeacher = new DaTeacher();
-            DateTime newAppointment = new DateTime();
-
-            newAppointment = DateTime.Parse(this.TextBoxDate.Text);
+            DateTime newAppointmentStart = new DateTime();
+            DateTime newAppointmentEnd = new DateTime();
+            newAppointmentStart = DateTime.Parse(this.TextBoxDate.Text);
+            
 
             TimeSpan time = TimeSpan.Parse(this.DropDownListTime.SelectedValue);
-
-            newAppointment = newAppointment.Add(time);
+            
+            newAppointmentStart = newAppointmentStart.Add(time);
+            newAppointmentEnd = newAppointmentStart.AddMinutes(lessonTime);
 
             string userName = User.Identity.Name;
 
             int? idTeacher = daTeacher.GetTeacherIdByUserName(userName);
 
             //db call to insert appointment
-            daTeacher.InsertNewAppointment(newAppointment, (int)idTeacher);
+            daTeacher.InsertNewAppointment(newAppointmentStart, newAppointmentEnd, (int)idTeacher);
 
             Bind_Appointments(true);            
 
