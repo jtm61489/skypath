@@ -87,7 +87,8 @@ namespace skypath.DataAccess
             string sqlText = @"                                                                  
 
                             select [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].id,
-                                   [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointment,
+                                   [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointmentStart,
+                                   [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointmentEnd,
                                    [sukotto1_skypath2008].[sukotto1_jason2008].[User].userName
                             from [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher] 
                             inner join  [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment] on
@@ -97,7 +98,7 @@ namespace skypath.DataAccess
                                         [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id_User = 
                                         [sukotto1_skypath2008].[sukotto1_jason2008].[User].id
                             where [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id = @idTeacher
-                            order by [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointment
+                            order by [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointmentStart
                                 
                                 ";
 

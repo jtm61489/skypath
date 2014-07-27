@@ -50,6 +50,13 @@ namespace skypath.MasterPages
                 ulMainMenu.Controls.Add(liMainMenu3);
             }
 
+            HtmlGenericControl liMainMenu4 = new HtmlGenericControl("li");
+            HtmlGenericControl aMainMenu4 = new HtmlGenericControl("a");
+            aMainMenu4.Attributes.Add("href", "ContactUs.aspx");
+            aMainMenu4.InnerText = "ContactUs";
+            liMainMenu4.Controls.Add(aMainMenu4);
+            ulMainMenu.Controls.Add(liMainMenu4);
+
             this.ContentPlaceHolderMainMenu.Controls.Add(ulMainMenu);
         }
     }

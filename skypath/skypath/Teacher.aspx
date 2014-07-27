@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Teacher.aspx.cs" Inherits="skypath.Teacher"
     MasterPageFile="~/MasterPages/Main.master" %>
 
+<%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
+
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">
 </asp:Content>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolderBodyHeader">
@@ -18,15 +20,22 @@
                 AutoGenerateSelectButton="true" AutoGenerateColumns="false" DataKeyNames="id">
                 <SelectedRowStyle BackColor="Red" />
                 <Columns>
-                    <asp:BoundField DataField="appointment" HeaderText="appointment" SortExpression="appointment" />
+                    <asp:BoundField DataField="appointmentStart" HeaderText="appointmentStart" SortExpression="appointmentStart" />
+                    <asp:BoundField DataField="appointmentEnd" HeaderText="appointmentEnd" SortExpression="appointmentEnd" />
                     <asp:BoundField DataField="userName" HeaderText="userName" SortExpression="userName" />
                 </Columns>
             </asp:GridView>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" 
+        BorderColor="Gray" CssOnly="False" Width="500px" 
+        style="top: 0px; left: 0px" TimeFormat="Clock24Hours" />
     <br />
     <asp:Button ID="ButtonDelete" runat="server" Text="Delete Appointment" />
     <h4>
+        <DayPilot:DayPilotScheduler ID="DayPilotScheduler1" runat="server" 
+        BorderStyle="Solid" CssOnly="False" EnableTheming="True">
+    </DayPilot:DayPilotScheduler>
         Add New Appointment Opening
     </h4>
     <br />
@@ -44,4 +53,8 @@
     <asp:Button ID="ButtonAddNewAppointment" runat="server" Text="Add New" />
     <br />
     <br />
-</asp:Content>
+    <asp:FileUpload ID="FileUpload" runat="server" />
+    <asp:Button ID="ButtonUpload" runat="server" Text="Upload" />
+
+    <asp:PlaceHolder ID="PlaceHolderTeachers" runat="server"></asp:PlaceHolder>
+    </asp:Content>

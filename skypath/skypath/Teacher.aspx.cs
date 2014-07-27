@@ -8,6 +8,7 @@ using skypath.Utilities;
 using System.Data.SqlClient;
 using skypath.DataAccess;
 using System.Data;
+using System.IO;
 
 namespace skypath
 {
@@ -16,7 +17,8 @@ namespace skypath
         protected void Page_Load(object sender, EventArgs e)
         {
             this.ButtonAddNewAppointment.Click += new EventHandler(ButtonAddNewAppointment_Click);
-            this.ButtonDelete.Click += new EventHandler(ButtonDelete_Click);            
+            this.ButtonDelete.Click += new EventHandler(ButtonDelete_Click);
+            this.ButtonUpload.Click += new EventHandler(ButtonUpload_Click);
 
             // make times for drop down list
             for (int i = 0; i <= 23; i++)
@@ -39,7 +41,26 @@ namespace skypath
             }
 
             Bind_Appointments(false);
+            BindTeachers();
 
+        }
+
+        void ButtonUpload_Click(object sender, EventArgs e)
+        {
+            if (FileUpload.HasFile)
+            {
+                int imageFileLen = FileUpload.PostedFile.ContentLength;
+                byte[] imageArray = new byte[imageFileLen];
+                HttpPostedFile image = FileUpload.PostedFile;
+                image.InputStream.Read(imageArray, 0, imageFileLen);
+                //MemoryStream stream = new MemoryStream(imageArray);
+
+                Int32 userId = 2;
+
+                DaImage daImage = new DaImage();
+                daImage.SaveImage(userId, imageArray);
+
+            }
         }
 
         void ButtonDelete_Click(object sender, EventArgs e)
@@ -54,6 +75,14 @@ namespace skypath
             Bind_Appointments(true);
         }
 
+        private void BindTeachers()
+        {
+            Image image = new Image();
+            image.ImageUrl = "~/ImageHandler.ashx?userId=" + 2;
+
+            PlaceHolderTeachers.Controls.Add(image);
+        }
+
         void Bind_Appointments(bool refreshGrid)
         {
             DaTeacher daTeacher = new DaTeacher();
@@ -65,10 +94,18 @@ namespace skypath
             DataTable dtAppointments = daTeacher.GetTeacherAppointments((int)idTeacher);
 
             GridViewAppointments.DataSource = dtAppointments;
+            DayPilotCalendar1.DataSource = dtAppointments;
+
+            DayPilotCalendar1.DataStartField = "appointmentStart";
+            DayPilotCalendar1.DataEndField = "appointmentEnd";
+            DayPilotCalendar1.DataTextField = "userName";
+            DayPilotCalendar1.DataValueField = "id";
+            DayPilotCalendar1.Days = 7;
 
             if (!IsPostBack || refreshGrid)
             {
                 GridViewAppointments.DataBind();
+                DayPilotCalendar1.DataBind();
             }            
         }
 
