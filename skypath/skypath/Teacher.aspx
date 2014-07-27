@@ -29,7 +29,8 @@
     </asp:UpdatePanel>
     <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" 
         BorderColor="Gray" CssOnly="False" Width="500px" 
-        style="top: 0px; left: 0px" TimeFormat="Clock24Hours" />
+        style="top: 0px; left: 0px" TimeFormat="Clock24Hours" 
+        EventClickHandling="PostBack" />
     <br />
     <asp:Button ID="ButtonDelete" runat="server" Text="Delete Appointment" />
     <h4>
