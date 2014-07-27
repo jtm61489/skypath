@@ -33,10 +33,7 @@
     <br />
     <asp:Button ID="ButtonDelete" runat="server" Text="Delete Appointment" />
     <h4>
-        <DayPilot:DayPilotScheduler ID="DayPilotScheduler1" runat="server" 
-        BorderStyle="Solid" CssOnly="False" EnableTheming="True">
-    </DayPilot:DayPilotScheduler>
-        Add New Appointment Opening
+        &nbsp;Add New Appointment Opening
     </h4>
     <br />
     <asp:Label ID="LabelDate" runat="server" Text="Date:" AssociatedControlID="TextBoxDate"></asp:Label>

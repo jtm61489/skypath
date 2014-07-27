@@ -49,15 +49,6 @@ namespace skypath {
         protected global::System.Web.UI.WebControls.Button ButtonDelete;
         
         /// <summary>
-        /// DayPilotScheduler1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DayPilot.Web.Ui.DayPilotScheduler DayPilotScheduler1;
-        
-        /// <summary>
         /// LabelDate control.
         /// </summary>
         /// <remarks>
