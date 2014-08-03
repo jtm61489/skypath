@@ -2,7 +2,6 @@
     MasterPageFile="~/MasterPages/Main.master" %>
 
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
-
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">
 </asp:Content>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolderBodyHeader">
@@ -27,10 +26,11 @@
             </asp:GridView>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" 
-        BorderColor="Gray" CssOnly="False" Width="500px" 
-        style="top: 0px; left: 0px" TimeFormat="Clock24Hours" 
-        EventClickHandling="PostBack" />
+    <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" BorderColor="Gray"
+        CssOnly="False" Width="500px" Style="top: 0px; left: 0px" TimeFormat="Clock24Hours"
+        CellHeight="15" CssClassPrefix="calendar_green" DayFontSize="10pt" EventClickHandling="PostBack"
+        HeaderHeight="23" HourFontSize="16pt" HourWidth="15" EnableTheming="True" 
+        HeightSpec="Full" />
     <br />
     <asp:Button ID="ButtonDelete" runat="server" Text="Delete Appointment" />
     <h4>
@@ -53,6 +53,5 @@
     <br />
     <asp:FileUpload ID="FileUpload" runat="server" />
     <asp:Button ID="ButtonUpload" runat="server" Text="Upload" />
-
     <asp:PlaceHolder ID="PlaceHolderTeachers" runat="server"></asp:PlaceHolder>
-    </asp:Content>
+</asp:Content>
