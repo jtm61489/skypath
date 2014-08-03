@@ -16,34 +16,40 @@ namespace skypath
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             this.ButtonAddNewAppointment.Click += new EventHandler(ButtonAddNewAppointment_Click);
             this.ButtonDelete.Click += new EventHandler(ButtonDelete_Click);
             this.ButtonUpload.Click += new EventHandler(ButtonUpload_Click);
             this.DayPilotCalendar1.EventClick += new DayPilot.Web.Ui.Events.EventClickEventHandler(DayPilotCalendar1_EventClick);
+=======
+                this.ButtonAddNewAppointment.Click += new EventHandler(ButtonAddNewAppointment_Click);
+                this.ButtonDelete.Click += new EventHandler(ButtonDelete_Click);
+                this.ButtonUpload.Click += new EventHandler(ButtonUpload_Click);
+>>>>>>> origin/master
 
-            // make times for drop down list
-            for (int i = 0; i <= 23; i++)
-            {
-                for (int j = 0; j < 2; j++)
+                // make times for drop down list
+                for (int i = 0; i <= 23; i++)
                 {
-                    string hourAndMinute = Convert.ToString(i);
-                    if (j == 0)
+                    for (int j = 0; j < 2; j++)
                     {
-                        hourAndMinute += ":00";
+                        string hourAndMinute = Convert.ToString(i);
+                        if (j == 0)
+                        {
+                            hourAndMinute += ":00";
 
-                    }
-                    else
-                    {
-                        hourAndMinute += ":30";
-                    }
+                        }
+                        else
+                        {
+                            hourAndMinute += ":30";
+                        }
 
-                    this.DropDownListTime.Items.Add(new ListItem(hourAndMinute, hourAndMinute));
+                        this.DropDownListTime.Items.Add(new ListItem(hourAndMinute, hourAndMinute));
+                    }
                 }
-            }
 
-            Bind_Appointments(false);
-            BindTeachers();
 
+                Bind_Appointments(false);
+                BindTeachers();
         }
 
         void DayPilotCalendar1_EventClick(object sender, DayPilot.Web.Ui.Events.EventClickEventArgs e)

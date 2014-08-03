@@ -26,11 +26,19 @@
             </asp:GridView>
         </ContentTemplate>
     </asp:UpdatePanel>
+<<<<<<< HEAD
     <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" BorderColor="Gray"
         CssOnly="False" Width="500px" Style="top: 0px; left: 0px" TimeFormat="Clock24Hours"
         CellHeight="15" CssClassPrefix="calendar_green" DayFontSize="10pt" EventClickHandling="PostBack"
         HeaderHeight="23" HourFontSize="16pt" HourWidth="15" EnableTheming="True" 
         HeightSpec="Full" />
+=======
+    <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" 
+        BorderColor="Gray" CssOnly="False" Width="500px" 
+        style="top: 0px; left: 0px; height: 279px;" TimeFormat="Clock24Hours" 
+        EventClickHandling="PostBack" BusinessEndsHour="19" CellHeight="15" 
+        HeaderHeight="23" HourFontSize="16pt" />
+>>>>>>> origin/master
     <br />
     <asp:Button ID="ButtonDelete" runat="server" Text="Delete Appointment" />
     <h4>
