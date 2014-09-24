@@ -16,46 +16,43 @@ namespace skypath
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             this.ButtonAddNewAppointment.Click += new EventHandler(ButtonAddNewAppointment_Click);
             this.ButtonDelete.Click += new EventHandler(ButtonDelete_Click);
             this.ButtonUpload.Click += new EventHandler(ButtonUpload_Click);
             this.DayPilotCalendar1.EventClick += new DayPilot.Web.Ui.Events.EventClickEventHandler(DayPilotCalendar1_EventClick);
-=======
-                this.ButtonAddNewAppointment.Click += new EventHandler(ButtonAddNewAppointment_Click);
-                this.ButtonDelete.Click += new EventHandler(ButtonDelete_Click);
-                this.ButtonUpload.Click += new EventHandler(ButtonUpload_Click);
->>>>>>> origin/master
 
-                // make times for drop down list
-                for (int i = 0; i <= 23; i++)
+
+
+            // make times for drop down list
+            for (int i = 0; i <= 23; i++)
+            {
+                for (int j = 0; j < 2; j++)
                 {
-                    for (int j = 0; j < 2; j++)
+                    string hourAndMinute = Convert.ToString(i);
+                    if (j == 0)
                     {
-                        string hourAndMinute = Convert.ToString(i);
-                        if (j == 0)
-                        {
-                            hourAndMinute += ":00";
+                        hourAndMinute += ":00";
 
-                        }
-                        else
-                        {
-                            hourAndMinute += ":30";
-                        }
-
-                        this.DropDownListTime.Items.Add(new ListItem(hourAndMinute, hourAndMinute));
                     }
+                    else
+                    {
+                        hourAndMinute += ":30";
+                    }
+
+                    this.DropDownListTime.Items.Add(new ListItem(hourAndMinute, hourAndMinute));
                 }
+            }
 
 
-                Bind_Appointments(false);
-                BindTeachers();
+            Bind_Appointments(false);
+            BindTeachers();
         }
 
         void DayPilotCalendar1_EventClick(object sender, DayPilot.Web.Ui.Events.EventClickEventArgs e)
         {
             string value = e.Value;
-            int x = 0;            
+            int x = 0;
 
         }
 
@@ -120,7 +117,7 @@ namespace skypath
             {
                 GridViewAppointments.DataBind();
                 DayPilotCalendar1.DataBind();
-            }            
+            }
         }
 
         void ButtonAddNewAppointment_Click(object sender, EventArgs e)
@@ -130,10 +127,10 @@ namespace skypath
             DateTime newAppointmentStart = new DateTime();
             DateTime newAppointmentEnd = new DateTime();
             newAppointmentStart = DateTime.Parse(this.TextBoxDate.Text);
-            
+
 
             TimeSpan time = TimeSpan.Parse(this.DropDownListTime.SelectedValue);
-            
+
             newAppointmentStart = newAppointmentStart.Add(time);
             newAppointmentEnd = newAppointmentStart.AddMinutes(lessonTime);
 
@@ -144,7 +141,7 @@ namespace skypath
             //db call to insert appointment
             daTeacher.InsertNewAppointment(newAppointmentStart, newAppointmentEnd, (int)idTeacher);
 
-            Bind_Appointments(true);            
+            Bind_Appointments(true);
 
         }
 
