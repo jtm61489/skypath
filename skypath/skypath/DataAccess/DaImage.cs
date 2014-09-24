@@ -27,8 +27,8 @@ namespace skypath.DataAccess
             sqlCommand.Parameters.Add(new SqlParameter("@userId", userId));            
 
             string sqlText = @"SELECT [picture]
-                          FROM [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher]
-                          where [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id_User = @userId
+                          FROM [sukotto1_skypath2008].[dbo].[Teacher]
+                          where [sukotto1_skypath2008].[dbo].[Teacher].id_User = @userId
                             ";
 
             sqlCommand.CommandText = sqlText;
@@ -53,9 +53,9 @@ namespace skypath.DataAccess
             sqlCommand.Parameters.Add(new SqlParameter("@userId", userId));
             sqlCommand.Parameters.Add(new SqlParameter("@image", image));
 
-            string sqlText = @"UPDATE [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher]
+            string sqlText = @"UPDATE [sukotto1_skypath2008].[dbo].[Teacher]
                                SET [picture] = @image 
-                               where [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id_User = @userId
+                               where [sukotto1_skypath2008].[dbo].[Teacher].id_User = @userId
                             ";
 
             sqlCommand.CommandText = sqlText;

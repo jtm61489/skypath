@@ -28,9 +28,9 @@ namespace skypath.DataAccess
             sqlCommand.Parameters.Add(new SqlParameter("@password", password));
 
             string sqlText = @"SELECT [id]
-                          FROM [sukotto1_skypath2008].[sukotto1_jason2008].[User] 
-                        where [sukotto1_skypath2008].[sukotto1_jason2008].[User].userName = @userName 
-                        and [sukotto1_skypath2008].[sukotto1_jason2008].[User].password = @password";
+                          FROM [sukotto1_skypath2008].[dbo].[User] 
+                        where [sukotto1_skypath2008].[dbo].[User].userName = @userName 
+                        and [sukotto1_skypath2008].[dbo].[User].password = @password";
 
             sqlCommand.CommandText = sqlText;
 

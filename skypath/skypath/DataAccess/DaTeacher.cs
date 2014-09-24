@@ -24,7 +24,7 @@ namespace skypath.DataAccess
             sqlCommand.Parameters.Add(new SqlParameter("@appointmentEnd", newAppointmentEnd));
             sqlCommand.Parameters.Add(new SqlParameter("@idTeacher", idTeacher));
 
-            string sqlText = @"Insert into [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment] 
+            string sqlText = @"Insert into [sukotto1_skypath2008].[dbo].[Appointment] 
                                 (appointmentStart, appointmentEnd, id_Teacher)
                                 values(@appointmentStart, @appointmentEnd, @idTeacher)                               
                                 ";
@@ -51,15 +51,15 @@ namespace skypath.DataAccess
 
             string sqlText = @"                                                                  
 
-                            select @idTeacher = [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id
+                            select @idTeacher = [sukotto1_skypath2008].[dbo].[Teacher].id
                             
-                            from [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher] 
+                            from [sukotto1_skypath2008].[dbo].[Teacher] 
                             
-                            inner join  [sukotto1_skypath2008].[sukotto1_jason2008].[User] on
-                                [sukotto1_skypath2008].[sukotto1_jason2008].[User].id = 
-                                [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id_User 
+                            inner join  [sukotto1_skypath2008].[dbo].[User] on
+                                [sukotto1_skypath2008].[dbo].[User].id = 
+                                [sukotto1_skypath2008].[dbo].[Teacher].id_User 
 
-                            where [sukotto1_skypath2008].[sukotto1_jason2008].[User].userName = @userName                            
+                            where [sukotto1_skypath2008].[dbo].[User].userName = @userName                            
     
                                 ";
 
@@ -87,19 +87,19 @@ namespace skypath.DataAccess
 
             string sqlText = @"                                                                  
 
-                            select [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].id,
-                                   [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointmentStart,
-                                   [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointmentEnd,
-                                   [sukotto1_skypath2008].[sukotto1_jason2008].[User].userName
-                            from [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher] 
-                            inner join  [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment] on
-                                        [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].id_Teacher = 
-                                        [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id 
-                            inner join  [sukotto1_skypath2008].[sukotto1_jason2008].[User] on
-                                        [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id_User = 
-                                        [sukotto1_skypath2008].[sukotto1_jason2008].[User].id
-                            where [sukotto1_skypath2008].[sukotto1_jason2008].[Teacher].id = @idTeacher
-                            order by [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].appointmentStart
+                            select [sukotto1_skypath2008].[dbo].[Appointment].id,
+                                   [sukotto1_skypath2008].[dbo].[Appointment].appointmentStart,
+                                   [sukotto1_skypath2008].[dbo].[Appointment].appointmentEnd,
+                                   [sukotto1_skypath2008].[dbo].[User].userName
+                            from [sukotto1_skypath2008].[dbo].[Teacher] 
+                            inner join  [sukotto1_skypath2008].[dbo].[Appointment] on
+                                        [sukotto1_skypath2008].[dbo].[Appointment].id_Teacher = 
+                                        [sukotto1_skypath2008].[dbo].[Teacher].id 
+                            inner join  [sukotto1_skypath2008].[dbo].[User] on
+                                        [sukotto1_skypath2008].[dbo].[Teacher].id_User = 
+                                        [sukotto1_skypath2008].[dbo].[User].id
+                            where [sukotto1_skypath2008].[dbo].[Teacher].id = @idTeacher
+                            order by [sukotto1_skypath2008].[dbo].[Appointment].appointmentStart
                                 
                                 ";
 
@@ -122,8 +122,8 @@ namespace skypath.DataAccess
 
             string sqlText = @"
               
-                            Delete from [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment]
-                            where [sukotto1_skypath2008].[sukotto1_jason2008].[Appointment].id = @idAppointment
+                            Delete from [sukotto1_skypath2008].[dbo].[Appointment]
+                            where [sukotto1_skypath2008].[dbo].[Appointment].id = @idAppointment
                                 
                                 ";
 
