@@ -27,7 +27,7 @@
             <ul class="social-icons">
                 <li>
                     <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
-                        LogoutPageUrl="Default.aspx" />
+                        LogoutPageUrl="~/Default.aspx" />
                 </li>
             </ul>
             <nav class="clearfix">
