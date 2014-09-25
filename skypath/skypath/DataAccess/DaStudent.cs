@@ -25,7 +25,8 @@ namespace skypath.DataAccess
             string sqlText = @"                                                                  
 
                             select [sukotto1_skypath2008].[dbo].[Appointment].id,
-                                   [sukotto1_skypath2008].[dbo].[Appointment].appointment,
+                                   [sukotto1_skypath2008].[dbo].[Appointment].appointmentStart,
+                                   [sukotto1_skypath2008].[dbo].[Appointment].appointmentEnd,
                                    [sukotto1_skypath2008].[dbo].[User].userName
                             from [sukotto1_skypath2008].[dbo].[Student] 
                             inner join  [sukotto1_skypath2008].[dbo].[Appointment] on
@@ -35,7 +36,7 @@ namespace skypath.DataAccess
                                         [sukotto1_skypath2008].[dbo].[Student].id_User = 
                                         [sukotto1_skypath2008].[dbo].[User].id
                             where [sukotto1_skypath2008].[dbo].[Student].id = @idStudent
-                            order by [sukotto1_skypath2008].[dbo].[Appointment].appointment
+                            order by [sukotto1_skypath2008].[dbo].[Appointment].appointmentStart
                                 
                                 ";
 
@@ -57,7 +58,8 @@ namespace skypath.DataAccess
             string sqlText = @"                                                                  
 
                             select [sukotto1_skypath2008].[dbo].[Appointment].id,
-                                   [sukotto1_skypath2008].[dbo].[Appointment].appointment,
+                                   [sukotto1_skypath2008].[dbo].[Appointment].appointmentStart,
+                                   [sukotto1_skypath2008].[dbo].[Appointment].appointmentEnd, 
                                    [sukotto1_skypath2008].[dbo].[User].userName
                             from [sukotto1_skypath2008].[dbo].[Teacher] 
                             inner join  [sukotto1_skypath2008].[dbo].[Appointment] on
@@ -67,7 +69,7 @@ namespace skypath.DataAccess
                                         [sukotto1_skypath2008].[dbo].[Teacher].id_User = 
                                         [sukotto1_skypath2008].[dbo].[User].id
                             where [sukotto1_skypath2008].[dbo].[Appointment].id_Student is null
-                            order by [sukotto1_skypath2008].[dbo].[Appointment].appointment
+                            order by [sukotto1_skypath2008].[dbo].[Appointment].appointmentStart
                                 
                                 ";
 

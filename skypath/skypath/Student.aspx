@@ -19,7 +19,7 @@
                 AutoGenerateSelectButton="true" AutoGenerateColumns="false" DataKeyNames="id">
                 <SelectedRowStyle BackColor="Red" />
                 <Columns>
-                    <asp:BoundField DataField="appointment" HeaderText="appointment" SortExpression="appointment" />
+                    <asp:BoundField DataField="appointmentStart" HeaderText="appointment" SortExpression="appointment" />
                     <asp:BoundField DataField="userName" HeaderText="userName" SortExpression="userName" />
                 </Columns>
             </asp:GridView>
@@ -38,7 +38,7 @@
                 AutoGenerateSelectButton="true" AutoGenerateColumns="false" DataKeyNames="id">
                 <SelectedRowStyle BackColor="Red" />
                 <Columns>
-                    <asp:BoundField DataField="appointment" HeaderText="appointment" SortExpression="appointment" />
+                    <asp:BoundField DataField="appointmentStart" HeaderText="appointment" SortExpression="appointment" />
                     <asp:BoundField DataField="userName" HeaderText="userName" SortExpression="userName" />
                 </Columns>
             </asp:GridView>
