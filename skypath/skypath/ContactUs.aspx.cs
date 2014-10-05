@@ -19,22 +19,13 @@ namespace skypath
 
         public void btnSend_Click(object sender, System.EventArgs e)
         {
-            //MailMessage msg = new MailMessage("noreply@skypath.jp", "jtm61489@gmail.com");
-
-            //msg.Subject = txtSubject.Text;
-            //msg.Body = txtContent.Value;
-            //lblStatus.Text = "Sending...";
-
-            //SmtpClient smtp = new SmtpClient();
-            //smtp.Send(msg);
-
-            MailMessage objMail = new MailMessage("test@skypath.jp", "jtm61489@gmail.com", "test", "test body");
+            MailMessage objMail = new MailMessage("test@skypath.jp", "scottbrussell@gmail.com", "test", "test body");
             NetworkCredential objNC = new NetworkCredential("test@skypath.jp", "Qwer1234");
             SmtpClient objsmtp = new SmtpClient("webmail.skypath.jp", 25); // for hotmail
             //objsmtp.EnableSsl = true;
             objsmtp.Credentials = objNC;
             objsmtp.Send(objMail);
-            lblStatus.Text = "Sent email (" + txtSubject.Text + ") to " + txtTo.Text;
+            lblStatus.Text = txtFrom.Text + "has sent email (" + txtSubject.Text + ") to " + txtTo.Text;
         }
     }
 }
