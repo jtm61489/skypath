@@ -16,10 +16,13 @@ namespace skypath.DataAccess
 
         /// <summary>
         /// check login for a user/password, single result is authenticated
+        /// 
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// returns image saved by user for display in page
+        /// </returns>
         public DataTable GetImage(Int32 userId)
         {
             SqlCommand sqlCommand = new SqlCommand();
@@ -45,7 +48,9 @@ namespace skypath.DataAccess
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// sets user's picture to specified image in the database
+        /// </returns>
         public void SaveImage(Int32 userId, byte[] image)
         {
             SqlCommand sqlCommand = new SqlCommand();

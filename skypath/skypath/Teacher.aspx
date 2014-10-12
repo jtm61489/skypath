@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Teacher.aspx.cs" Inherits="skypath.Teacher"
+﻿<%@ Page Title="Teacher Home" Page Language="C#" AutoEventWireup="true" CodeBehind="Teacher.aspx.cs" Inherits="skypath.Teacher"
     MasterPageFile="~/MasterPages/Main.master" %>
 
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>

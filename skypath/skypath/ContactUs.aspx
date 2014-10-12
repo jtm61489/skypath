@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Contact Us" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true"
     CodeBehind="ContactUs.aspx.cs" Inherits="skypath.ContactUs" %>
 
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Contact Us</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMainMenu" runat="server">
 </asp:Content>
@@ -11,6 +12,7 @@
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+
     <style type="text/css">
         .bodyDiv
         {
@@ -41,12 +43,15 @@
         {
             border-color: #888888;
         }
+        
+        /*button so big please stop: consider change to /styles/styles.css*/
         .button
         {
             height: 40px;
             width: 130px;
         }
     </style>
+
     <fieldset class="bodyDiv">
         <br />
         <asp:Label ID="Label1" runat="server" AssociatedControlID="txtFrom" CssClass="label">From:   

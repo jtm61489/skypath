@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="skypath.Student"
+﻿<%@ Page Title="Student Home" Page Language="C#" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="skypath.Student"
     MasterPageFile="~/MasterPages/Main.master" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">

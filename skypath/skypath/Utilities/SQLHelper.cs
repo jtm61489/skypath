@@ -8,6 +8,7 @@ using System.Data;
 
 namespace skypath.Utilities
 {
+
     public class SQLHelper
     {
         //connection string

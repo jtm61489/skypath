@@ -19,7 +19,9 @@ namespace skypath.DataAccess
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// returns datatable populated form user data in db
+        /// </returns>
         public DataTable Login(string userName, string password)
         {
             SqlCommand sqlCommand = new SqlCommand();

@@ -26,7 +26,8 @@ namespace skypath
             Stream strm = getImage(userId);
             byte[] buffer = new byte[2048];
             int byteSeq = strm.Read(buffer, 0, 2048);
-            //Test File output. IIS_USR *SHOULD* have write access to this path, but if not you may have to grant it
+            
+            //Test File output. IIS_USR *SHOULD* have write access to this path, but if not may have to grant it
             FileStream fso = new FileStream(Path.Combine(context.Request.PhysicalApplicationPath, "test.jpg"), FileMode.Create);
 
             while (byteSeq > 0)

@@ -105,6 +105,7 @@
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\script.min.js" />
     <Content Include="Student.aspx" />
+    <Content Include="StudentLessonReport.aspx" />
     <Content Include="Styles\normalize.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -206,6 +207,13 @@
     </Compile>
     <Compile Include="Student.aspx.designer.cs">
       <DependentUpon>Student.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentLessonReport.aspx.cs">
+      <DependentUpon>StudentLessonReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentLessonReport.aspx.designer.cs">
+      <DependentUpon>StudentLessonReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Teacher.aspx.cs">
       <DependentUpon>Teacher.aspx</DependentUpon>
