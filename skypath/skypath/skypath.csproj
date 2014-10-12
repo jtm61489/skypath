@@ -230,6 +230,7 @@
     <Compile Include="TeacherPerformance.aspx.designer.cs">
       <DependentUpon>TeacherPerformance.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Encrypt.cs" />
     <Compile Include="Utilities\GridViewHelper.cs" />
     <Compile Include="Utilities\SQLHelper.cs" />
   </ItemGroup>
