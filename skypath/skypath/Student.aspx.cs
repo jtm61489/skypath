@@ -38,6 +38,10 @@ namespace skypath
 
         void ButtonBookAppointment_Click(object sender, EventArgs e)
         {
+            //check to see if appointment is selected
+            if (GridViewAllAppointments.SelectedRow == null)
+                return;
+            
             GridViewRow selectedRow = GridViewAllAppointments.Rows[GridViewAllAppointments.SelectedIndex];
 
             int appointmentId = (int)GridViewAllAppointments.DataKeys[selectedRow.RowIndex]["id"];

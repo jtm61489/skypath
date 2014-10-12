@@ -57,10 +57,6 @@
         <asp:Label runat="server" ID="Label2" AssociatedControlID="txtTo" CssClass="label">To: 
         </asp:Label>
         <asp:TextBox ID="txtTo" runat="server" CssClass="textBox"></asp:TextBox>
-        <%--<asp:RequiredFieldValidator ID="ToValidator1" runat="server" ErrorMessage="Please Enter the Email To."
-        ControlToValidate="txtTo"></asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="ToValidator2" runat="server" ErrorMessage="Please Enter a Valid To Email address"
-        ControlToValidate="txtTo" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>--%>
         <asp:Label ID="Label3" runat="server" AssociatedControlID="txtSubject" CssClass="label">Subject:</asp:Label>
         <asp:TextBox ID="txtSubject" runat="server" CssClass="textBox"></asp:TextBox>
         <asp:Label ID="Label4" runat="server" AssociatedControlID="txtContent" CssClass="label">Message:

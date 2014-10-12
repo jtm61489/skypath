@@ -1,7 +1,10 @@
-﻿<%@ Page Title="Student Home" Page Language="C#" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="skypath.Student"
+﻿<%@ Page Title="Student Home" Language="C#" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="skypath.Student"
     MasterPageFile="~/MasterPages/Main.master" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">
+    <script type="text/javascript">
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolderBodyHeader">
     <h3>
@@ -45,7 +48,7 @@
         </ContentTemplate>
     </asp:UpdatePanel>
     <br />
-    <asp:Button ID="ButtonBookAppointment" runat="server" Text="Book Appointment" />
+    <asp:Button ID="ButtonBookAppointment" runat="server" Text="Book Appointment" Enabled="True" />
     <br />
     <br />
 </asp:Content>

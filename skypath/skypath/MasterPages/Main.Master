@@ -38,10 +38,10 @@
     </header>
     <section role="banner">
         <hgroup>
-            <h1>
+<%--            <h1>
                 School Name?</h1>
             <h2>
-                Class Name?</h2>
+                Class Name?</h2>--%>
         </hgroup>
         <article role="main" class="clearfix">
             <div class="post">
@@ -60,7 +60,7 @@
     <footer role="contentinfo">
         <p>
             <span class="left">Skypath
-                <a href="Default.aspx">HOME</a> 
+                <a href="~/Default.aspx">HOME</a> 
                 <%--| <a href="portfolio.html">
                     PORTFOLIO</a> | <a href="page.html">PAGE</a> | <a href="blog.html">BLOG</a>
             | <a href="contact.html">CONTACT US</a>--%>
