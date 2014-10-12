@@ -116,6 +116,7 @@
     <Content Include="Styles\styles.css" />
     <Content Include="Styles\styles.min.css" />
     <Content Include="Teacher.aspx" />
+    <Content Include="TeacherPerformance.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -221,6 +222,13 @@
     </Compile>
     <Compile Include="Teacher.aspx.designer.cs">
       <DependentUpon>Teacher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherPerformance.aspx.cs">
+      <DependentUpon>TeacherPerformance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherPerformance.aspx.designer.cs">
+      <DependentUpon>TeacherPerformance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\GridViewHelper.cs" />
     <Compile Include="Utilities\SQLHelper.cs" />

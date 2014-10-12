@@ -9,10 +9,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMainMenu" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderBodyHeader" runat="server">
-
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-
     <style type="text/css">
         .bodyDiv
         {
@@ -43,14 +39,15 @@
         {
             border-color: #888888;
         }
-        
-        /*button so big please stop: consider change to /styles/styles.css*/
+        /*button so big please stop: consider change in /styles/styles.css*/
         .button
         {
             height: 40px;
             width: 130px;
         }
     </style>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
 
     <fieldset class="bodyDiv">
         <br />
@@ -66,7 +63,7 @@
         ControlToValidate="txtTo" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>--%>
         <asp:Label ID="Label3" runat="server" AssociatedControlID="txtSubject" CssClass="label">Subject:</asp:Label>
         <asp:TextBox ID="txtSubject" runat="server" CssClass="textBox"></asp:TextBox>
-        <asp:Label ID="Label4" runat="server" AssociatedControlID="txtContent" CssClass="label">Mail:
+        <asp:Label ID="Label4" runat="server" AssociatedControlID="txtContent" CssClass="label">Message:
         </asp:Label>
         <textarea runat="server" id="txtContent" rows="7" cols="24" class="textBox"></textarea>
         <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click" CssClass="button">

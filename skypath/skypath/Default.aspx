@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/MasterPages/Main.master" AutoEventWireup="true"
-    CodeBehind="Default.aspx.cs" Inherits="skypath._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/MasterPages/Main.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="skypath._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">
 </asp:Content>
